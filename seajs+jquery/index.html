@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--1.引入seajs-->
+    <script src="./js/sea-debug.js"></script>
+    <!--1.在jquery的最后定义模块化，引入jQuery-->
+    <script>
+        seajs.config({
+            alias:{
+                /*文件路径，'jquery'是别名，外边直接使用:"jquery-1.11.3.js是文件名*/
+                'jquery':"jquery-1.11.3.js"
+            },
+            /*文件根路径*/
+            base:"./js"
+        });
+        /*seajs.use()有三种用法，取决于加载完后是否执行其他的问题
+        * 可以直接就引入main.js,后面的回调省略
+        * 如果要使用main.js里面的方法，就使用回调
+        * 如果是引入多个main.js，就使用数组的方式*/
+//        seajs.use("./js/main1.js",function(obj){
+//
+//        })
+
+        seajs.use(["./js/main1.js","./js/main2.js"],function(obj1,obj2){
+            console.log(obj1.abc);
+            console.log(obj2.flog);
+        })
+    </script>
+</head>
+<body>
+<div id="test">hello world!</div>
+</body>
+</html>

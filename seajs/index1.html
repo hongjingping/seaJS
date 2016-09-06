@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--1.引入seajs-->
+    <script src="./js/sea-debug.js"></script>
+    <!--5.seajs.use是程序入口-->
+    <script>
+        /*通过module.js导出的函数可以传递给参数e，然后就可以使用e得到内部的方法*/
+        seajs.use("./js/module.js",function(e){
+//            e.sayHello();
+//            console.log("end");
+
+            console.log(e.abc);
+            e.hello();
+        })
+    </script>
+</head>
+<body>
+<div>hello world!</div>
+</body>
+</html>

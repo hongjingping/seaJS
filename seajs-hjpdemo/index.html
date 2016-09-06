@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.content{width: 200px;height:200px;background-color: aqua;display: none;}
+    </style>
+    <!--1.引入seajs-->
+    <script src="./js/sea-debug.js"></script>
+    <!--2.引入jquery-->
+    <script>
+        /*seajs.config用来对Sea.js进行配置，可以设置路径paths，方便跨目录进行调用；可以设置别名，方便调用*/
+        seajs.config({
+            alias:{
+                "jquery":"jquery-1.11.3.js"
+            },
+            base:"./js"
+        });
+        seajs.use("./js/main.js",function(e){
+            console.log(e.abc);
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <input type="button" value="上海">
+    <input type="button" value="北京">
+    <input type="button" value="广州">
+    <div class="content">东方明珠</div>
+    <div class="content">天安门</div>
+    <div class="content">小蛮腰</div>
+</div>
+</body>
+</html>
